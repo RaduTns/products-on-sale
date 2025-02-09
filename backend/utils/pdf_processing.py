@@ -1,5 +1,6 @@
 import fitz  # PyMuPDF
 from typing import List, Dict, Any
+from pdf2image import convert_from_path
 
 def append_group(groups, font_size, group_text, group_positions, page_number):
     if group_text:
@@ -36,3 +37,7 @@ def process_text_block(block, previous_font_size: float, current_group: List[str
             previous_font_size = font_size
 
     return previous_font_size, current_group, group_positions
+
+def pdf_to_jpeg(pdf_path):
+    pages = convert_from_path(pdf_path)
+    return pages
