@@ -1,4 +1,5 @@
 import os
+from time import sleep
 from os import walk
 from collections import defaultdict
 from backend.kaufland_app.services.groq_api import get_products_and_prices
@@ -17,6 +18,7 @@ def get_products(pdf_path, groq):
     for page in products:
          text = r"D:/GIT Repo/products-on-sale/backend/images/"+filenames[i]
          result[page] = get_products_and_prices(str(products[page]), text, groq)
+         sleep(10)
          i = i+1
     return result
 

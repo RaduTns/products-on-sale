@@ -11,8 +11,7 @@ groq = Groq(api_key=os.getenv('GROQ_API_KEY'))
 pdf_path = "Kaufland-23-12-2024-24-12-2024-04.pdf"  # Path to your PDF file
 
 results = get_products(pdf_path, groq)
-for result in results:
-    print(result)
+
 
 
 
